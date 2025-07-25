@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace Phone_Book.Helpers
 {
     internal static class Extensions
@@ -7,11 +5,10 @@ namespace Phone_Book.Helpers
         internal static TAttribute? GetAttribute<TAttribute>(this Enum enumValue)
             where TAttribute : Attribute
         {
-            return enumValue.GetType()
-                .GetMember(enumValue.ToString())
-                .First()
-                .GetCustomAttribute<TAttribute>();
-
+            return System.Reflection.CustomAttributeExtensions.GetCustomAttribute<TAttribute>(
+                enumValue.GetType()
+                    .GetMember(enumValue.ToString())
+                    .First());
         }
 
     }

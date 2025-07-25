@@ -135,7 +135,8 @@ public class DisplayController(ContactContext contactContext)
         }
         else AnsiConsole.Markup($"[red]Invalid {searchType
             .GetAttribute<DisplayAttribute>()?
-            .Name ?? searchType.ToString()}[/]");
+            .Name ?? searchType.ToString()
+        }[/]");
 
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
